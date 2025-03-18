@@ -71,6 +71,7 @@ export default function GenerateContent() {
         fetchUserPoints();
         fetchContentHistory();
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoaded, isSignedIn, user, router]);
 
     const fetchUserPoints = async () => {

@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Twitter, Heart, MessageCircle, Repeat, Share } from 'lucide-react';
 
 interface TwitterMockProps {
