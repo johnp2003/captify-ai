@@ -10,7 +10,7 @@ import {
   useAuth,
 } from '@clerk/nextjs';
 import { useState, useEffect} from 'react';
-import { Captions, CircleFadingPlus, Menu, X} from 'lucide-react';
+import { BotMessageSquare, Captions, CircleFadingPlus, Menu, X} from 'lucide-react';
 
 export function Navbar() {
     const { userId } = useAuth();
@@ -39,9 +39,9 @@ export function Navbar() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-2">
                 {/* <Captions className="w-8 h-8 text-blue-500" /> */}
-                <CircleFadingPlus className="w-8 h-8 text-green-500" />
+                <BotMessageSquare className="w-8 h-8 text-green-500" />
                 <span className="text-xl sm:text-2xl font-bold text-white">
-                  Postify AI
+                  Captify AI
                 </span>
               </Link>
             </div>
