@@ -14,12 +14,14 @@ import {
 import { auth } from '@clerk/nextjs/server';
 import { SignUpButton } from '@clerk/nextjs';
 import { Navbar } from '@/components/Navbar';
+import { GeminiBackground } from '@/components/GeminiBackground';
 
 export default async function Home() {
   const { userId } = await auth();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-gray-100 overflow-hidden pt-20">
+    <div className="min-h-screen text-gray-100 overflow-hidden pt-20 relative">
+      <GeminiBackground />
       <Navbar />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
