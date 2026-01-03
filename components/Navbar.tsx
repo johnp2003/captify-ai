@@ -9,11 +9,13 @@ import {
   SignedIn,
   useAuth,
 } from '@clerk/nextjs';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect} from 'react';
 import { BotMessageSquare, Captions, CircleFadingPlus, Menu, X} from 'lucide-react';
 
 export function Navbar() {
     const { userId } = useAuth();
+    const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -39,7 +41,7 @@ export function Navbar() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-2">
                 {/* <Captions className="w-8 h-8 text-blue-500" /> */}
-                <BotMessageSquare className="w-8 h-8 text-green-500" />
+                <BotMessageSquare className="w-8 h-8 text-emerald-500" />
                 <span className="text-xl sm:text-2xl font-bold text-white">
                   Captify AI
                 </span>
@@ -64,11 +66,17 @@ export function Navbar() {
                 {['Features', 'Pricing', 'Docs'].map((item) => (
                   <Link
                     key={item}
-                    href={`/${item.toLowerCase()}`}
+                    href={item === 'Features' ? '/#benefits' : `/${item.toLowerCase()}`}
+                    onClick={item === 'Features' ? (e) => {
+                      if (pathname === '/') {
+                        e.preventDefault();
+                        document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    } : undefined}
                     className="text-gray-300 hover:text-white transition-colors py-2 sm:py-0 relative group"
                   >
                     {item}
-                    <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                    <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                   </Link>
                 ))}
                 {userId && (
@@ -77,7 +85,7 @@ export function Navbar() {
                     className="text-gray-300 hover:text-white transition-colors py-2 sm:py-0 relative group"
                   >
                     Dashboard
-                    <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                    <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                   </Link>
                 )}
                 <SignedOut>
@@ -87,7 +95,7 @@ export function Navbar() {
                     </button>
                   </SignInButton>
                   <SignUpButton mode="modal">
-                    <button className="bg-green-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-colors mt-2 sm:mt-0">
+                    <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full transition-colors mt-2 sm:mt-0">
                       Sign Up
                     </button>
                   </SignUpButton>
@@ -107,6 +115,4 @@ export function Navbar() {
         </nav>
       </header>
     );
-
-
 }
