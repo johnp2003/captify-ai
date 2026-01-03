@@ -28,7 +28,7 @@ export default async function Home() {
           <SparklesIcon className="w-8 h-8 text-yellow-400 opacity-50" />
         </div>
         <div className="absolute top-40 right-20 animate-float animation-delay-2000">
-          <ZapIcon className="w-10 h-10 text-blue-400 opacity-50" />
+          <ZapIcon className="w-10 h-10 text-green-400 opacity-50" />
         </div>
         <div className="absolute bottom-20 left-1/4 animate-float animation-delay-4000">
           <TrendingUpIcon className="w-12 h-12 text-green-400 opacity-50" />
@@ -36,8 +36,8 @@ export default async function Home() {
 
         {/* Hero Section */}
         <div className="text-center py-20 lg:py-32 relative">
-          <RocketIcon className="w-16 h-16 text-purple-500 mx-auto mb-6 animate-bounce" />
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+          <RocketIcon className="w-16 h-16 text-green-500 mx-auto mb-6 animate-bounce" />
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-green-600">
             AI-Powered Social Media Content Generator
           </h1>
           <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
@@ -47,13 +47,13 @@ export default async function Home() {
           <div className="flex justify-center space-x-4">
             <Button
               asChild
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105"
             >
               <Link href="/generate">Start Creating</Link>
             </Button>
             <Button
               asChild
-              className="bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full text-lg transition duration-300 ease-in-out"
+              className="bg-transparent border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-3 rounded-full text-lg transition duration-300 ease-in-out"
             >
               <Link href="#features">Learn More</Link>
             </Button>
@@ -69,7 +69,7 @@ export default async function Home() {
             {[
               {
                 title: 'Twitter Threads',
-                icon: <TwitterIcon className="w-10 h-10 mb-4 text-blue-400" />,
+                icon: <TwitterIcon className="w-10 h-10 mb-4 text-green-400" />,
                 description:
                   'Generate compelling Twitter threads that engage your audience and boost your reach.',
               },
@@ -83,7 +83,7 @@ export default async function Home() {
               },
               {
                 title: 'LinkedIn Posts',
-                icon: <LinkedinIcon className="w-10 h-10 mb-4 text-blue-600" />,
+                icon: <LinkedinIcon className="w-10 h-10 mb-4 text-green-600" />,
                 description:
                   'Craft professional content for your LinkedIn network to establish thought leadership.',
               },
@@ -159,7 +159,7 @@ export default async function Home() {
         <div className="text-center py-20 relative">
           <div className="absolute top-10 right-10 animate-spin-slow">
             <svg
-              className="w-20 h-20 text-blue-500 opacity-20"
+              className="w-20 h-20 text-green-500 opacity-20"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +186,7 @@ export default async function Home() {
           {userId ? (
             <Button
               asChild
-              className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105"
             >
               <Link href="/generate">
                 Generate Content Now <ArrowRightIcon className="ml-2 h-5 w-5" />
@@ -194,7 +194,7 @@ export default async function Home() {
             </Button>
           ) : (
             <SignUpButton mode="modal">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
+              <Button className="bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
                 Get Started Free <ArrowRightIcon className="ml-2 h-5 w-5" />
               </Button>
             </SignUpButton>
