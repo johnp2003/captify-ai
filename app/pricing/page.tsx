@@ -13,7 +13,7 @@ const pricingPlans = [
     priceId: 'price_1R3RvKDniTjXmmW21ofwtiyE',
     features: [
       '100 AI-generated posts per month',
-      'Twitter thread generation',
+      'X thread generation',
       'Basic analytics',
     ],
   },
@@ -23,7 +23,7 @@ const pricingPlans = [
     priceId: 'price_1R3RujDniTjXmmW2HRhGdnPH',
     features: [
       '500 AI-generated posts per month',
-      'Twitter, Instagram, and LinkedIn content',
+      'X, Instagram, and LinkedIn content',
       'Advanced analytics',
       'Priority support',
     ],

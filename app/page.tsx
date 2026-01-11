@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
-  TwitterIcon,
   InstagramIcon,
   LinkedinIcon,
   ArrowRightIcon,
@@ -86,11 +85,15 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: 'Twitter Threads',
-                icon: <TwitterIcon className="w-8 h-8 text-sky-400" />,
-                description: 'Generate compelling Twitter threads that engage your audience and boost your reach.',
-                gradient: 'from-sky-500/10 to-transparent',
-                border: 'group-hover:border-sky-500/50'
+                title: 'X Threads',
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-white">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                ),
+                description: 'Generate compelling X threads that engage your audience and boost your reach.',
+                gradient: 'from-gray-500/10 to-transparent',
+                border: 'group-hover:border-white/50'
               },
               {
                 title: 'Instagram Captions',
