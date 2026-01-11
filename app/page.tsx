@@ -144,28 +144,41 @@ export default async function Home() {
             </div>
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
+                  <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white leading-tight">
-                  Why Creators Choose <br />
-                  <span className="text-emerald-400">Captify AI</span>
+                  Why Choose Captify <br />
+                  <span className="text-emerald-400">Over Your Everyday Generic AI Tools?</span>
                 </h2>
-                <div className="space-y-6">
+                  <div className="space-y-6">
                   {[
-                    'Save time and effort on content creation',
-                    'Consistently produce high-quality posts',
-                    'Increase engagement across all platforms',
-                    'Stay ahead of social media trends',
-                    'Customize content to match your brand voice',
-                    'Scale your social media presence effortlessly'
+                    {
+                      title: 'Visual Validation',
+                      text: 'Instant, realistic previews (mockups) for X, Instagram, and LinkedIn. ChatGPT just gives text; we show the result.'
+                    },
+                    {
+                      title: 'Platform-Optimized Workflow',
+                      text: 'Automated prompt engineering. You don\'t need to know how to prompt; the app does it for you.'
+                    },
+                    {
+                      title: 'Integrated History & Context',
+                      text: 'Keeps a history of specific generations tied to their platform formats for easy reuse.'
+                    }
                   ].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-4 group">
-                      <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center group-hover:bg-emerald-500/30 transition-colors">
+                    <div key={index} className="flex items-start space-x-4 group">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex-shrink-0 flex items-center justify-center group-hover:bg-emerald-500/30 transition-colors mt-1">
                         <CheckCircleIcon className="w-5 h-5 text-emerald-400" />
                       </div>
-                      <span className="text-gray-300 text-lg group-hover:text-white transition-colors">{benefit}</span>
+                      <div>
+                        <span className="text-white text-lg font-semibold block group-hover:text-emerald-400 transition-colors">
+                          {benefit.title}
+                        </span>
+                        <span className="text-gray-400 text-base leading-relaxed group-hover:text-gray-300 transition-colors">
+                          {benefit.text}
+                        </span>
+                      </div>
                     </div>
                   ))}
-                </div>
+                  </div>
               </div>
               
               <div className="relative hidden lg:block">
