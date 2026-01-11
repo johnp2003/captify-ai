@@ -150,7 +150,7 @@ export default function GenerateContent() {
         switch (contentType) {
           case 'x':
           case 'twitter':
-            promptText = `You are a viral social media expert. Create a thread of 5 tweets about "${prompt}". \n\nRules:\n1. Tone: ${tone}. \n2. Hook the reader in the first tweet.\n3. Use short, punchy sentences.\n4. Include 2-3 relevant hashtags in the last tweet only.\n5. Each tweet must be under 280 characters.\n6. Provide ONLY the tweets, separated by two newlines.\n\nEnsure specific separation so they can be parsed easily.`;
+             promptText = `You are a viral social media expert. Create a thread of 5 tweets about "${prompt}". \n\nRules:\n1. Tone: ${tone}. \n2. Hook the reader in the first tweet.\n3. Use short, punchy sentences.\n4. Include 2-3 relevant hashtags in the last tweet only.\n5. Each tweet must be under 280 characters.\n6. Return the result strictly as a valid JSON array of strings. Example: ["Tweet 1", "Tweet 2"]. Do not include any markdown formatting like \`\`\`json.`;
             break;
           case 'instagram':
             promptText = `You are an Instagram growth strategist. Write a captivating caption for a post about "${prompt}". \n\nRules:\n1. Tone: ${tone}.\n2. Start with a strong hook or question.\n3. Use a conversational, authentic tone.\n4. Include line breaks for readability.\n5. Include a 'call to action' at the end.\n6. Add a curated list of 15-20 relevant hashtags at the very bottom.`;
@@ -198,13 +198,27 @@ export default function GenerateContent() {
         const result = await model.generateContent(parts);
         const generatedText = result.response.text();
 
-        let content: string[];
+        let content: string[] = [];
         if (contentType === 'x' || contentType === 'twitter') {
-        content = generatedText
+          try {
+            // Clean the text of markdown code blocks if present
+            const cleanedText = generatedText.replace(/```json\n?|\n?```/g, '').trim();
+            // Attempt to parse JSON
+            const parsed = JSON.parse(cleanedText);
+            if (Array.isArray(parsed)) {
+              content = parsed.map(String);
+            } else {
+               // If valid JSON but not array, fallback
+               content = [cleanedText];
+            }
+          } catch (e) {
+            console.warn("Failed to parse JSON for X content, falling back to split:", e);
+             content = generatedText
             .split('\n\n')
             .filter((post) => post.trim() !== '');
+          }
         } else {
-        content = [generatedText];
+          content = [generatedText];
         }
 
         setGeneratedContent(content);
